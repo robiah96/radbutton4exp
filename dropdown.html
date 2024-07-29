@@ -1,0 +1,21 @@
+# Define a variable to store the selected value
+hazard_type_input = None
+
+# Define a function to handle the selection event
+def on_dropdown_change2(change):
+    global hazard_type_input
+    if change['type'] == 'change' and change['name'] == 'value':
+        hazard_type_input = change['new']
+        print("Geohazard Type:", hazard_type_input)
+
+# Create a dropdown selection widget
+dropdown2 = widgets.Dropdown(
+    options=['tsunami', 'landslide', 'volcano', 'fault'],
+    description='Hazard Type:'
+)
+
+# Display the dropdown widget
+display(dropdown2)
+
+# Attach the event handler to the dropdown
+dropdown2.observe(on_dropdown_change2)
