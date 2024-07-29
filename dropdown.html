@@ -1,21 +1,40 @@
-# Define a variable to store the selected value
-hazard_type_input = None
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            color: white; /* Set text color to white */
+            background-color: black; /* Optional: set background color to black for contrast */
+            font-family: 'Avenir Next', Tahoma, Arial, sans-serif; /* Set font family to Avenir Next with fallback options */
+        }
+        .dropdown-container {
+            margin: 20px;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
 
-# Define a function to handle the selection event
-def on_dropdown_change2(change):
-    global hazard_type_input
-    if change['type'] == 'change' and change['name'] == 'value':
-        hazard_type_input = change['new']
-        print("Geohazard Type:", hazard_type_input)
+<h3>Geohazard Type:</h3>
+<div class="dropdown-container">
+    <select id="hazard-type-dropdown">
+        <option value="tsunami">Tsunami</option>
+        <option value="landslide">Landslide</option>
+        <option value="volcano">Volcano</option>
+        <option value="fault">Fault</option>
+    </select>
+</div>
 
-# Create a dropdown selection widget
-dropdown2 = widgets.Dropdown(
-    options=['tsunami', 'landslide', 'volcano', 'fault'],
-    description='Hazard Type:'
-)
+<script>
+    // JavaScript to handle the selection event
+    document.getElementById('hazard-type-dropdown').addEventListener('change', function(event) {
+        var hazard_type_input = event.target.value;
+        console.log("Geohazard Type:", hazard_type_input);
+    });
+</script>
 
-# Display the dropdown widget
-display(dropdown2)
-
-# Attach the event handler to the dropdown
-dropdown2.observe(on_dropdown_change2)
+</body>
+</html>
