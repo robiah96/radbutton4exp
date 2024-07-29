@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .radio-buttons {
+            margin: 10px 0;
+        }
+        .radio-buttons label {
+            display: block;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h3>Geophysical Sensor:</h3>
+<div class="radio-buttons">
+    <label>
+        <input type="radio" name="sensor" value="Seismic_Sensor"> Seismic Sensor
+    </label>
+    <label>
+        <input type="radio" name="sensor" value="Magnetometer"> Magnetometer
+    </label>
+    <label>
+        <input type="radio" name="sensor" value="EM_Sensor"> EM Sensor
+    </label>
+    <label>
+        <input type="radio" name="sensor" value="Lidar"> Lidar
+    </label>
+    <label>
+        <input type="radio" name="sensor" value="Camera"> Camera
+    </label>
+    <label>
+        <input type="radio" name="sensor" value="Thermal_Camera"> Thermal Camera
+    </label>
+    <label>
+        <input type="radio" name="sensor" value="Radarpod"> Radarpod
+    </label>
+</div>
+
+<script>
+    // JavaScript to handle the selection event
+    document.querySelectorAll('input[name="sensor"]').forEach((elem) => {
+        elem.addEventListener("change", function(event) {
+            var sensor_name = event.target.value;
+            console.log("Selected Sensor:", sensor_name);
+        });
+    });
+</script>
+
+</body>
+</html>
